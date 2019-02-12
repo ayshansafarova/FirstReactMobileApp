@@ -7,7 +7,9 @@
  */
 
 import React, {Component} from 'react';
+import {Provider} from 'mobx-react';
 import AppNavigator from './app/app.navigator';
+import stores from './app/stores';
 
 // const instructions = Platform.select({
 //   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -16,11 +18,13 @@ import AppNavigator from './app/app.navigator';
 //     'Shake or press menu button for dev menu',
 // });
 
-type Props = {};
-export default class App extends Component<Props> {
+// type Props = {};
+export default class App extends Component<{}> {
   render() {
     return (
-      <AppNavigator/>
+      <Provider stores = {stores} >
+        <AppNavigator/>
+      </Provider>
     );
   }
 }
